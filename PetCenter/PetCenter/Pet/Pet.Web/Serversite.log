@@ -1,0 +1,6 @@
+2017-01-17 23:37:48,858 [16712] INFO LogCartillaAtencion - Function: [listarCartillaAtencion()] 
+2017-01-17 23:37:50,381 [16712] INFO Pet.Data.EF5.CartillaAtencion - Function: [listarCartillaAtencion()] - EF5
+2017-01-17 23:38:10,830 [16712] INFO LogCartillaAtencion - Function: [buscarCartillaAtencion(Pet.Entity.GEL_CartillaAtencion)] 
+2017-01-17 23:38:10,937 [16712] INFO Pet.Data.EF5.CartillaAtencion - Function: [buscarCartillaAtencion()] - Se registró correctamente
+2017-01-17 23:38:10,954 [20816] INFO LogCartillaAtencion - Function: [buscarCartillaAtencion(Pet.Entity.GEL_CartillaAtencion)] 
+2017-01-17 23:38:10,959 [20816] INFO Pet.Data.EF5.CartillaAtencion - Function: [buscarCartillaAtencion()] - Se registró correctamente

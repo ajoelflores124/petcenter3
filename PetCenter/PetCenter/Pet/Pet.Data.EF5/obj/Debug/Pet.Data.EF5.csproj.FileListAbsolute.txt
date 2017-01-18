@@ -1,0 +1,10 @@
+D:\TP3PETCENTER\PetCenter\PetCenter\Pet\Pet.Data.EF5\obj\Debug\Pet.Data.EF5.csprojResolveAssemblyReference.cache
+D:\TP3PETCENTER\PetCenter\PetCenter\Pet\Pet.Data.EF5\bin\Debug\Pet.Data.EF5.dll.config
+D:\TP3PETCENTER\PetCenter\PetCenter\Pet\Pet.Data.EF5\bin\Debug\Pet.Data.EF5.dll
+D:\TP3PETCENTER\PetCenter\PetCenter\Pet\Pet.Data.EF5\bin\Debug\Pet.Data.EF5.pdb
+D:\TP3PETCENTER\PetCenter\PetCenter\Pet\Pet.Data.EF5\bin\Debug\EntityFramework.dll
+D:\TP3PETCENTER\PetCenter\PetCenter\Pet\Pet.Data.EF5\bin\Debug\Pet.Entity.dll
+D:\TP3PETCENTER\PetCenter\PetCenter\Pet\Pet.Data.EF5\bin\Debug\Pet.Entity.pdb
+D:\TP3PETCENTER\PetCenter\PetCenter\Pet\Pet.Data.EF5\bin\Debug\EntityFramework.xml
+D:\TP3PETCENTER\PetCenter\PetCenter\Pet\Pet.Data.EF5\obj\Debug\Pet.Data.EF5.dll
+D:\TP3PETCENTER\PetCenter\PetCenter\Pet\Pet.Data.EF5\obj\Debug\Pet.Data.EF5.pdb
