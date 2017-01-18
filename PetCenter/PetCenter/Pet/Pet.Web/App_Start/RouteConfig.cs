@@ -16,7 +16,7 @@ namespace Pet.Web
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "CartillaAtencion", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "SolicitudMantenimiento", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
