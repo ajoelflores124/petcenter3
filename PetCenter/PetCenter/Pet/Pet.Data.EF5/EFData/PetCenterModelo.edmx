@@ -870,18 +870,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="R_3">
-          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
-          <End Role="GPC_Solicitud" Type="Self.GPC_Solicitud" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Empleado">
-              <PropertyRef Name="CodigoEmpleado" />
-            </Principal>
-            <Dependent Role="GPC_Solicitud">
-              <PropertyRef Name="codigo_empleado" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="R_4">
           <End Role="CE_Prioridad" Type="Self.CE_Prioridad" Multiplicity="0..1" />
           <End Role="GPC_Solicitud" Type="Self.GPC_Solicitud" Multiplicity="*" />
@@ -1066,12 +1054,6 @@
           <Parameter Name="Estado" Type="int" Mode="In" />
           <Parameter Name="CodigoSede" Type="int" Mode="In" />
           <Parameter Name="CodigoArea" Type="int" Mode="In" />
-          <Parameter Name="OrdenCampo" Type="varchar" Mode="In" />
-          <Parameter Name="OrdenOrientacion" Type="varchar" Mode="In" />
-          <Parameter Name="PaginaActual" Type="int" Mode="In" />
-          <Parameter Name="NroRegistrosPorPagina" Type="int" Mode="In" />
-          <Parameter Name="TotalRegistros" Type="int" Mode="InOut" />
-          <Parameter Name="CantidadPaginas" Type="int" Mode="InOut" />
         </Function>
         <Function Name="USP_CONSULTAR_AREA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="USP_CONSULTAR_ESTADO_FICHA_MANTENIMIENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -1293,10 +1275,6 @@
             <End Role="GPC_Solicitud" EntitySet="GPC_Solicitud" />
             <End Role="GPC_DetalleDeSolicitud" EntitySet="GPC_DetalleDeSolicitud" />
           </AssociationSet>
-          <AssociationSet Name="R_3" Association="Self.R_3">
-            <End Role="Empleado" EntitySet="Empleado" />
-            <End Role="GPC_Solicitud" EntitySet="GPC_Solicitud" />
-          </AssociationSet>
           <AssociationSet Name="R_4" Association="Self.R_4">
             <End Role="CE_Prioridad" EntitySet="CE_Prioridad" />
             <End Role="GPC_Solicitud" EntitySet="GPC_Solicitud" />
@@ -1372,22 +1350,6 @@
           </FunctionImport>
           <FunctionImport Name="USP_CONSULTA_MATERIAL">
           <Parameter Name="DescripcionMaterial" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="USP_CONSULTA_SOLICITUDES">
-            <Parameter Name="CodigoSolicitud" Mode="In" Type="Int32" />
-            <Parameter Name="Descripcion" Mode="In" Type="String" />
-            <Parameter Name="CodigoTipoMantenimiento" Mode="In" Type="Int32" />
-            <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
-            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
-            <Parameter Name="Estado" Mode="In" Type="Int32" />
-            <Parameter Name="CodigoSede" Mode="In" Type="Int32" />
-            <Parameter Name="CodigoArea" Mode="In" Type="Int32" />
-            <Parameter Name="OrdenCampo" Mode="In" Type="String" />
-            <Parameter Name="OrdenOrientacion" Mode="In" Type="String" />
-            <Parameter Name="PaginaActual" Mode="In" Type="Int32" />
-            <Parameter Name="NroRegistrosPorPagina" Mode="In" Type="Int32" />
-            <Parameter Name="TotalRegistros" Mode="InOut" Type="Int32" />
-            <Parameter Name="CantidadPaginas" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="USP_CONSULTAR_AREA" ReturnType="Collection(PET_DBModel.USP_CONSULTAR_AREA_Result)" />
           <FunctionImport Name="USP_CONSULTAR_ESTADO_FICHA_MANTENIMIENTO" ReturnType="Collection(PET_DBModel.USP_CONSULTAR_ESTADO_FICHA_MANTENIMIENTO_Result)" />
@@ -1680,6 +1642,16 @@
             <End Role="GPC_Solicitud" EntitySet="GPC_Solicitud" />
             <End Role="GPC_DetalleDeSolicitud" EntitySet="GPC_DetalleDeSolicitud" />
           </AssociationSet>
+          <FunctionImport Name="USP_CONSULTA_SOLICITUDES" ReturnType="Collection(PET_DBModel.USP_CONSULTA_SOLICITUDES_Result)">
+            <Parameter Name="CodigoSolicitud" Mode="In" Type="Int32" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="CodigoTipoMantenimiento" Mode="In" Type="Int32" />
+            <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="Estado" Mode="In" Type="Int32" />
+            <Parameter Name="CodigoSede" Mode="In" Type="Int32" />
+            <Parameter Name="CodigoArea" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="USP_CONSULTA_ACTIVIDAD_Result">
           <Property Type="Int32" Name="CodigoActividad" Nullable="false" />
@@ -2832,6 +2804,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="USP_CONSULTA_SOLICITUDES_Result">
+          <Property Type="Int32" Name="CodigoSolicitud" Nullable="true" />
+          <Property Type="String" Name="DescripcionSolicitud" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="FechaSolicitud" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="CodigoEstadoSolicitud" Nullable="true" />
+          <Property Type="String" Name="DescripcionEstadoSolicitud" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="CodigoSede" Nullable="true" />
+          <Property Type="String" Name="DescripcionSedeSolicitud" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="CodigoArea" Nullable="true" />
+          <Property Type="String" Name="DescripcionAreaSolicitud" Nullable="true" MaxLength="80" />
+          <Property Type="Int32" Name="CodigoTipoMantenimiento" Nullable="true" />
+          <Property Type="String" Name="DescripcionTipoMantenimiento" Nullable="true" MaxLength="80" />
+          <Property Type="Int32" Name="CodigoEmpleadoRegistra" Nullable="true" />
+          <Property Type="String" Name="NombreEmpleadoRegistra" Nullable="true" MaxLength="80" />
+          <Property Type="Int32" Name="CodigoEmpleadoAprueba" Nullable="true" />
+          <Property Type="String" Name="NombreEmpleadoAprueba" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="UsuarioCreacion" Nullable="true" MaxLength="25" />
+          <Property Type="DateTime" Name="FechaHoraCreacion" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UsuarioActualizacion" Nullable="true" MaxLength="25" />
+          <Property Type="DateTime" Name="FechaHoraActualizacion" Nullable="true" Precision="23" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2854,7 +2847,6 @@
           <FunctionImportMapping FunctionImportName="USP_CONSULTA_FICHA_MANTENIMIENTO" FunctionName="PET_DBModel.Store.USP_CONSULTA_FICHA_MANTENIMIENTO" />
           <FunctionImportMapping FunctionImportName="USP_CONSULTA_MANTENIMIENTO" FunctionName="PET_DBModel.Store.USP_CONSULTA_MANTENIMIENTO" />
           <FunctionImportMapping FunctionImportName="USP_CONSULTA_MATERIAL" FunctionName="PET_DBModel.Store.USP_CONSULTA_MATERIAL" />
-          <FunctionImportMapping FunctionImportName="USP_CONSULTA_SOLICITUDES" FunctionName="PET_DBModel.Store.USP_CONSULTA_SOLICITUDES" />
           <FunctionImportMapping FunctionImportName="USP_CONSULTAR_AREA" FunctionName="PET_DBModel.Store.USP_CONSULTAR_AREA">
             <ResultMapping>
               <ComplexTypeMapping TypeName="PET_DBModel.USP_CONSULTAR_AREA_Result">
@@ -3530,6 +3522,31 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="USP_CONSULTA_SOLICITUDES" FunctionName="PET_DBModel.Store.USP_CONSULTA_SOLICITUDES" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PET_DBModel.USP_CONSULTA_SOLICITUDES_Result">
+                <ScalarProperty Name="CodigoSolicitud" ColumnName="CodigoSolicitud" />
+                <ScalarProperty Name="DescripcionSolicitud" ColumnName="DescripcionSolicitud" />
+                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+                <ScalarProperty Name="CodigoEstadoSolicitud" ColumnName="CodigoEstadoSolicitud" />
+                <ScalarProperty Name="DescripcionEstadoSolicitud" ColumnName="DescripcionEstadoSolicitud" />
+                <ScalarProperty Name="CodigoSede" ColumnName="CodigoSede" />
+                <ScalarProperty Name="DescripcionSedeSolicitud" ColumnName="DescripcionSedeSolicitud" />
+                <ScalarProperty Name="CodigoArea" ColumnName="CodigoArea" />
+                <ScalarProperty Name="DescripcionAreaSolicitud" ColumnName="DescripcionAreaSolicitud" />
+                <ScalarProperty Name="CodigoTipoMantenimiento" ColumnName="CodigoTipoMantenimiento" />
+                <ScalarProperty Name="DescripcionTipoMantenimiento" ColumnName="DescripcionTipoMantenimiento" />
+                <ScalarProperty Name="CodigoEmpleadoRegistra" ColumnName="CodigoEmpleadoRegistra" />
+                <ScalarProperty Name="NombreEmpleadoRegistra" ColumnName="NombreEmpleadoRegistra" />
+                <ScalarProperty Name="CodigoEmpleadoAprueba" ColumnName="CodigoEmpleadoAprueba" />
+                <ScalarProperty Name="NombreEmpleadoAprueba" ColumnName="NombreEmpleadoAprueba" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaHoraCreacion" ColumnName="FechaHoraCreacion" />
+                <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
+                <ScalarProperty Name="FechaHoraActualizacion" ColumnName="FechaHoraActualizacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -3546,7 +3563,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
         <DesignerProperty Name="UseLegacyProvider" Value="True" />
       </DesignerInfoPropertySet>
     </Options>

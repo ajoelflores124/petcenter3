@@ -9,3 +9,14 @@ D:\TP3PETCENTER\PetCenter\PetCenter\Pet\Pet.Service\bin\Debug\EntityFramework.xm
 D:\TP3PETCENTER\PetCenter\PetCenter\Pet\Pet.Service\obj\Debug\Pet.Service.csprojResolveAssemblyReference.cache
 D:\TP3PETCENTER\PetCenter\PetCenter\Pet\Pet.Service\obj\Debug\Pet.Service.dll
 D:\TP3PETCENTER\PetCenter\PetCenter\Pet\Pet.Service\obj\Debug\Pet.Service.pdb
+C:\Users\jesus\Source\Repos\petcenter3\PetCenter\PetCenter\Pet\Pet.Service\bin\Debug\Pet.Service.dll
+C:\Users\jesus\Source\Repos\petcenter3\PetCenter\PetCenter\Pet\Pet.Service\bin\Debug\Pet.Service.pdb
+C:\Users\jesus\Source\Repos\petcenter3\PetCenter\PetCenter\Pet\Pet.Service\bin\Debug\Pet.Data.EF5.dll
+C:\Users\jesus\Source\Repos\petcenter3\PetCenter\PetCenter\Pet\Pet.Service\bin\Debug\Pet.Entity.dll
+C:\Users\jesus\Source\Repos\petcenter3\PetCenter\PetCenter\Pet\Pet.Service\bin\Debug\EntityFramework.dll
+C:\Users\jesus\Source\Repos\petcenter3\PetCenter\PetCenter\Pet\Pet.Service\bin\Debug\Pet.Data.EF5.pdb
+C:\Users\jesus\Source\Repos\petcenter3\PetCenter\PetCenter\Pet\Pet.Service\bin\Debug\Pet.Entity.pdb
+C:\Users\jesus\Source\Repos\petcenter3\PetCenter\PetCenter\Pet\Pet.Service\bin\Debug\EntityFramework.xml
+C:\Users\jesus\Source\Repos\petcenter3\PetCenter\PetCenter\Pet\Pet.Service\obj\Debug\Pet.Service.csprojResolveAssemblyReference.cache
+C:\Users\jesus\Source\Repos\petcenter3\PetCenter\PetCenter\Pet\Pet.Service\obj\Debug\Pet.Service.dll
+C:\Users\jesus\Source\Repos\petcenter3\PetCenter\PetCenter\Pet\Pet.Service\obj\Debug\Pet.Service.pdb

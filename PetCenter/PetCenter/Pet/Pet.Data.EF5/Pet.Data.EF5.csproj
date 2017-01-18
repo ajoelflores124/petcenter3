@@ -152,6 +152,11 @@
     <Compile Include="EFData\MaterialesxFichaMantenimiento.cs">
       <DependentUpon>PetCenterModelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="EFData\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="EFData\OrdenTrabajo.cs">
       <DependentUpon>PetCenterModelo.tt</DependentUpon>
     </Compile>
@@ -203,6 +208,9 @@
     <Compile Include="EFData\USP_CONSULTA_ACTIVIDAD_Result.cs">
       <DependentUpon>PetCenterModelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="EFData\USP_CONSULTA_SOLICITUDES_Result.cs">
+      <DependentUpon>PetCenterModelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="EFData\USP_GETMANTENIMIENTO_Result.cs">
       <DependentUpon>PetCenterModelo.tt</DependentUpon>
     </Compile>
@@ -220,6 +228,7 @@
     </Compile>
     <Compile Include="Empleado.cs" />
     <Compile Include="Estado.cs" />
+    <Compile Include="MANTENIMIENTO\SolicitudMantenimiento.cs" />
     <Compile Include="Paciente.cs" />
     <Compile Include="Prioridad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -256,6 +265,13 @@
       <Project>{01efe64d-718c-48f4-a42b-b7c1903248af}</Project>
       <Name>Pet.Entity</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EFData\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>PetCenterModelo.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

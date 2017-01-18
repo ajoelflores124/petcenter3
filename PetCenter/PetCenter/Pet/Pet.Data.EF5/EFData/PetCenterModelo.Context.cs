@@ -191,59 +191,6 @@ namespace Pet.Data.EF5.EFData
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_CONSULTA_MATERIAL", descripcionMaterialParameter);
         }
     
-        public virtual int USP_CONSULTA_SOLICITUDES(Nullable<int> codigoSolicitud, string descripcion, Nullable<int> codigoTipoMantenimiento, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> estado, Nullable<int> codigoSede, Nullable<int> codigoArea, string ordenCampo, string ordenOrientacion, Nullable<int> paginaActual, Nullable<int> nroRegistrosPorPagina, ObjectParameter totalRegistros, ObjectParameter cantidadPaginas)
-        {
-            var codigoSolicitudParameter = codigoSolicitud.HasValue ?
-                new ObjectParameter("CodigoSolicitud", codigoSolicitud) :
-                new ObjectParameter("CodigoSolicitud", typeof(int));
-    
-            var descripcionParameter = descripcion != null ?
-                new ObjectParameter("Descripcion", descripcion) :
-                new ObjectParameter("Descripcion", typeof(string));
-    
-            var codigoTipoMantenimientoParameter = codigoTipoMantenimiento.HasValue ?
-                new ObjectParameter("CodigoTipoMantenimiento", codigoTipoMantenimiento) :
-                new ObjectParameter("CodigoTipoMantenimiento", typeof(int));
-    
-            var fechaInicioParameter = fechaInicio.HasValue ?
-                new ObjectParameter("FechaInicio", fechaInicio) :
-                new ObjectParameter("FechaInicio", typeof(System.DateTime));
-    
-            var fechaFinParameter = fechaFin.HasValue ?
-                new ObjectParameter("FechaFin", fechaFin) :
-                new ObjectParameter("FechaFin", typeof(System.DateTime));
-    
-            var estadoParameter = estado.HasValue ?
-                new ObjectParameter("Estado", estado) :
-                new ObjectParameter("Estado", typeof(int));
-    
-            var codigoSedeParameter = codigoSede.HasValue ?
-                new ObjectParameter("CodigoSede", codigoSede) :
-                new ObjectParameter("CodigoSede", typeof(int));
-    
-            var codigoAreaParameter = codigoArea.HasValue ?
-                new ObjectParameter("CodigoArea", codigoArea) :
-                new ObjectParameter("CodigoArea", typeof(int));
-    
-            var ordenCampoParameter = ordenCampo != null ?
-                new ObjectParameter("OrdenCampo", ordenCampo) :
-                new ObjectParameter("OrdenCampo", typeof(string));
-    
-            var ordenOrientacionParameter = ordenOrientacion != null ?
-                new ObjectParameter("OrdenOrientacion", ordenOrientacion) :
-                new ObjectParameter("OrdenOrientacion", typeof(string));
-    
-            var paginaActualParameter = paginaActual.HasValue ?
-                new ObjectParameter("PaginaActual", paginaActual) :
-                new ObjectParameter("PaginaActual", typeof(int));
-    
-            var nroRegistrosPorPaginaParameter = nroRegistrosPorPagina.HasValue ?
-                new ObjectParameter("NroRegistrosPorPagina", nroRegistrosPorPagina) :
-                new ObjectParameter("NroRegistrosPorPagina", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_CONSULTA_SOLICITUDES", codigoSolicitudParameter, descripcionParameter, codigoTipoMantenimientoParameter, fechaInicioParameter, fechaFinParameter, estadoParameter, codigoSedeParameter, codigoAreaParameter, ordenCampoParameter, ordenOrientacionParameter, paginaActualParameter, nroRegistrosPorPaginaParameter, totalRegistros, cantidadPaginas);
-        }
-    
         public virtual ObjectResult<USP_CONSULTAR_AREA_Result> USP_CONSULTAR_AREA()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTAR_AREA_Result>("USP_CONSULTAR_AREA");
@@ -562,6 +509,43 @@ namespace Pet.Data.EF5.EFData
         public virtual int USP_REGISTRAR_MATERIAL_X_FICHA()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_REGISTRAR_MATERIAL_X_FICHA");
+        }
+    
+        public virtual ObjectResult<USP_CONSULTA_SOLICITUDES_Result> USP_CONSULTA_SOLICITUDES(Nullable<int> codigoSolicitud, string descripcion, Nullable<int> codigoTipoMantenimiento, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> estado, Nullable<int> codigoSede, Nullable<int> codigoArea)
+        {
+            var codigoSolicitudParameter = codigoSolicitud.HasValue ?
+                new ObjectParameter("CodigoSolicitud", codigoSolicitud) :
+                new ObjectParameter("CodigoSolicitud", typeof(int));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            var codigoTipoMantenimientoParameter = codigoTipoMantenimiento.HasValue ?
+                new ObjectParameter("CodigoTipoMantenimiento", codigoTipoMantenimiento) :
+                new ObjectParameter("CodigoTipoMantenimiento", typeof(int));
+    
+            var fechaInicioParameter = fechaInicio.HasValue ?
+                new ObjectParameter("FechaInicio", fechaInicio) :
+                new ObjectParameter("FechaInicio", typeof(System.DateTime));
+    
+            var fechaFinParameter = fechaFin.HasValue ?
+                new ObjectParameter("FechaFin", fechaFin) :
+                new ObjectParameter("FechaFin", typeof(System.DateTime));
+    
+            var estadoParameter = estado.HasValue ?
+                new ObjectParameter("Estado", estado) :
+                new ObjectParameter("Estado", typeof(int));
+    
+            var codigoSedeParameter = codigoSede.HasValue ?
+                new ObjectParameter("CodigoSede", codigoSede) :
+                new ObjectParameter("CodigoSede", typeof(int));
+    
+            var codigoAreaParameter = codigoArea.HasValue ?
+                new ObjectParameter("CodigoArea", codigoArea) :
+                new ObjectParameter("CodigoArea", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTA_SOLICITUDES_Result>("USP_CONSULTA_SOLICITUDES", codigoSolicitudParameter, descripcionParameter, codigoTipoMantenimientoParameter, fechaInicioParameter, fechaFinParameter, estadoParameter, codigoSedeParameter, codigoAreaParameter);
         }
     }
 }

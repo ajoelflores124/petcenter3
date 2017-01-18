@@ -17,7 +17,6 @@
     <FunctionImportMapping FunctionImportName="USP_CONSULTA_FICHA_MANTENIMIENTO" FunctionName="PET_DBModel.Store.USP_CONSULTA_FICHA_MANTENIMIENTO" />
     <FunctionImportMapping FunctionImportName="USP_CONSULTA_MANTENIMIENTO" FunctionName="PET_DBModel.Store.USP_CONSULTA_MANTENIMIENTO" />
     <FunctionImportMapping FunctionImportName="USP_CONSULTA_MATERIAL" FunctionName="PET_DBModel.Store.USP_CONSULTA_MATERIAL" />
-    <FunctionImportMapping FunctionImportName="USP_CONSULTA_SOLICITUDES" FunctionName="PET_DBModel.Store.USP_CONSULTA_SOLICITUDES" />
     <FunctionImportMapping FunctionImportName="USP_CONSULTAR_AREA" FunctionName="PET_DBModel.Store.USP_CONSULTAR_AREA">
       <ResultMapping>
         <ComplexTypeMapping TypeName="PET_DBModel.USP_CONSULTAR_AREA_Result">
@@ -693,5 +692,30 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="USP_CONSULTA_SOLICITUDES" FunctionName="PET_DBModel.Store.USP_CONSULTA_SOLICITUDES">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PET_DBModel.USP_CONSULTA_SOLICITUDES_Result">
+          <ScalarProperty Name="CodigoSolicitud" ColumnName="CodigoSolicitud" />
+          <ScalarProperty Name="DescripcionSolicitud" ColumnName="DescripcionSolicitud" />
+          <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+          <ScalarProperty Name="CodigoEstadoSolicitud" ColumnName="CodigoEstadoSolicitud" />
+          <ScalarProperty Name="DescripcionEstadoSolicitud" ColumnName="DescripcionEstadoSolicitud" />
+          <ScalarProperty Name="CodigoSede" ColumnName="CodigoSede" />
+          <ScalarProperty Name="DescripcionSedeSolicitud" ColumnName="DescripcionSedeSolicitud" />
+          <ScalarProperty Name="CodigoArea" ColumnName="CodigoArea" />
+          <ScalarProperty Name="DescripcionAreaSolicitud" ColumnName="DescripcionAreaSolicitud" />
+          <ScalarProperty Name="CodigoTipoMantenimiento" ColumnName="CodigoTipoMantenimiento" />
+          <ScalarProperty Name="DescripcionTipoMantenimiento" ColumnName="DescripcionTipoMantenimiento" />
+          <ScalarProperty Name="CodigoEmpleadoRegistra" ColumnName="CodigoEmpleadoRegistra" />
+          <ScalarProperty Name="NombreEmpleadoRegistra" ColumnName="NombreEmpleadoRegistra" />
+          <ScalarProperty Name="CodigoEmpleadoAprueba" ColumnName="CodigoEmpleadoAprueba" />
+          <ScalarProperty Name="NombreEmpleadoAprueba" ColumnName="NombreEmpleadoAprueba" />
+          <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+          <ScalarProperty Name="FechaHoraCreacion" ColumnName="FechaHoraCreacion" />
+          <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
+          <ScalarProperty Name="FechaHoraActualizacion" ColumnName="FechaHoraActualizacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

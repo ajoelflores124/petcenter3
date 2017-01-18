@@ -6,3 +6,23 @@
 2017-01-17 23:38:10,959 [20816] INFO Pet.Data.EF5.CartillaAtencion - Function: [buscarCartillaAtencion()] - Se registró correctamente
 2017-01-18 01:24:16,851 [18760] INFO LogCartillaAtencion - Function: [listarCartillaAtencion()] 
 2017-01-18 01:24:17,547 [18760] INFO Pet.Data.EF5.CartillaAtencion - Function: [listarCartillaAtencion()] - EF5
+2017-01-18 07:26:18,307 [284] INFO LogCartillaAtencion - Function: [listarCartillaAtencion()] 
+2017-01-18 07:26:24,783 [284] INFO Pet.Data.EF5.CartillaAtencion - Function: [listarCartillaAtencion()] - EF5
+2017-01-18 08:41:47,082 [9260] INFO LogCartillaAtencion - Function: [listarCartillaAtencion()] 
+2017-01-18 08:41:50,542 [9260] INFO Pet.Data.EF5.CartillaAtencion - Function: [listarCartillaAtencion()] - EF5
+2017-01-18 09:17:00,157 [11756] INFO LogCartillaAtencion - Function: [listarCartillaAtencion()] 
+2017-01-18 09:17:03,044 [11756] INFO Pet.Data.EF5.CartillaAtencion - Function: [listarCartillaAtencion()] - EF5
+2017-01-18 09:22:56,455 [3028] INFO LogCartillaAtencion - Function: [listarCartillaAtencion()] 
+2017-01-18 09:22:58,849 [3028] INFO Pet.Data.EF5.CartillaAtencion - Function: [listarCartillaAtencion()] - EF5
+2017-01-18 09:23:39,145 [7084] INFO LogCartillaAtencion - Function: [listarCartillaAtencion()] 
+2017-01-18 09:23:41,913 [7084] INFO Pet.Data.EF5.CartillaAtencion - Function: [listarCartillaAtencion()] - EF5
+2017-01-18 09:27:12,219 [11928] INFO LogCartillaAtencion - Function: [listarCartillaAtencion()] 
+2017-01-18 09:27:12,263 [11928] INFO Pet.Data.EF5.CartillaAtencion - Function: [listarCartillaAtencion()] - EF5
+2017-01-18 09:31:26,757 [5340] INFO LogCartillaAtencion - Function: [listarCartillaAtencion()] 
+2017-01-18 09:31:29,067 [5340] INFO Pet.Data.EF5.CartillaAtencion - Function: [listarCartillaAtencion()] - EF5
+2017-01-18 09:44:34,240 [8036] INFO LogCartillaAtencion - Function: [listarCartillaAtencion()] 
+2017-01-18 09:44:36,404 [8036] INFO Pet.Data.EF5.CartillaAtencion - Function: [listarCartillaAtencion()] - EF5
+2017-01-18 10:00:06,920 [6680] INFO LogCartillaAtencion - Function: [listarCartillaAtencion()] 
+2017-01-18 10:00:06,999 [6680] INFO Pet.Data.EF5.CartillaAtencion - Function: [listarCartillaAtencion()] - EF5
+2017-01-18 10:12:07,408 [7616] INFO LogCartillaAtencion - Function: [listarCartillaAtencion()] 
+2017-01-18 10:12:09,326 [7616] INFO Pet.Data.EF5.CartillaAtencion - Function: [listarCartillaAtencion()] - EF5

@@ -865,18 +865,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="R_3">
-    <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
-    <End Role="GPC_Solicitud" Type="Self.GPC_Solicitud" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Empleado">
-        <PropertyRef Name="CodigoEmpleado" />
-      </Principal>
-      <Dependent Role="GPC_Solicitud">
-        <PropertyRef Name="codigo_empleado" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="R_4">
     <End Role="CE_Prioridad" Type="Self.CE_Prioridad" Multiplicity="0..1" />
     <End Role="GPC_Solicitud" Type="Self.GPC_Solicitud" Multiplicity="*" />
@@ -1061,12 +1049,6 @@
     <Parameter Name="Estado" Type="int" Mode="In" />
     <Parameter Name="CodigoSede" Type="int" Mode="In" />
     <Parameter Name="CodigoArea" Type="int" Mode="In" />
-    <Parameter Name="OrdenCampo" Type="varchar" Mode="In" />
-    <Parameter Name="OrdenOrientacion" Type="varchar" Mode="In" />
-    <Parameter Name="PaginaActual" Type="int" Mode="In" />
-    <Parameter Name="NroRegistrosPorPagina" Type="int" Mode="In" />
-    <Parameter Name="TotalRegistros" Type="int" Mode="InOut" />
-    <Parameter Name="CantidadPaginas" Type="int" Mode="InOut" />
   </Function>
   <Function Name="USP_CONSULTAR_AREA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="USP_CONSULTAR_ESTADO_FICHA_MANTENIMIENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -1287,10 +1269,6 @@
     <AssociationSet Name="R_2" Association="Self.R_2">
       <End Role="GPC_Solicitud" EntitySet="GPC_Solicitud" />
       <End Role="GPC_DetalleDeSolicitud" EntitySet="GPC_DetalleDeSolicitud" />
-    </AssociationSet>
-    <AssociationSet Name="R_3" Association="Self.R_3">
-      <End Role="Empleado" EntitySet="Empleado" />
-      <End Role="GPC_Solicitud" EntitySet="GPC_Solicitud" />
     </AssociationSet>
     <AssociationSet Name="R_4" Association="Self.R_4">
       <End Role="CE_Prioridad" EntitySet="CE_Prioridad" />

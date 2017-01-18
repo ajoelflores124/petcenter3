@@ -20,7 +20,7 @@
         <EntityTypeShape EntityType="PET_DBModel.Comprobante_Examen" Width="1.5" PointX="7.8914511929692006" PointY="25.659450021413829" />
         <EntityTypeShape EntityType="PET_DBModel.Comprobante_Pago" Width="1.5" PointX="9.6971168730860189" PointY="17.081390835848353" />
         <EntityTypeShape EntityType="PET_DBModel.Detalle_Atencion" Width="1.5" PointX="7.380713266963471" PointY="8.41121349130348" />
-        <EntityTypeShape EntityType="PET_DBModel.Empleado" Width="1.5" PointX="10.949965349840916" PointY="5.9604514716008916" />
+        <EntityTypeShape EntityType="PET_DBModel.Empleado" Width="1.5" PointX="13.375" PointY="4.75" />
         <EntityTypeShape EntityType="PET_DBModel.Equipo_Sede" Width="1.5" PointX="4.36468033882076" PointY="6.333032715289403" />
         <EntityTypeShape EntityType="PET_DBModel.Especialidad" Width="1.5" PointX="5.5315151836404182" PointY="12.501601105789469" />
         <EntityTypeShape EntityType="PET_DBModel.EstadoFichaMantenimiento" Width="1.5" PointX="6.5798278667870118" PointY="5.4872051651995655" />

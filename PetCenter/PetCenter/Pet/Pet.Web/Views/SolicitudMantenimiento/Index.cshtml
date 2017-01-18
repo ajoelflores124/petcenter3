@@ -745,27 +745,27 @@
 
             function filtroBuscar() {
 
-                if ($("#cboEstado option:selected").html() == 'TODOS') {
-                    mostrarCartillaAtencion();
-                    return false;
-                }
+                //if ($("#cboEstado option:selected").html() == 'TODOS') {
+                //    mostrarCartillaAtencion();
+                //    return false;
+                //}
                 /*var Cliente = {
                     nombre: $('#txtNombrePaciente').val()
                 }*/
 
-                var Paciente = {
-                    nombre: $('#txtNombrePaciente').val().toUpperCase()
-                }
+                //var Paciente = {
+                //    nombre: $('#txtNombrePaciente').val()
+                //}
 
                 var filtro = {
-                    numero_comprobante: $('#txtComprobantePago').val(),
+                    numero_comprobante: '3',
                     //nombre_cliente: $('#txtNombreCliente').val(),
-                    Paciente: Paciente,
+                    Paciente: 'pav',
                     //nombre_empleado: $('#txtNombreEmpleado').val(),
-                    codigo: $('#txtCodigoCartilla').val(),
-                    estado_cartilla: $("#cboEstado option:selected").html(),
-                    desde_day: $('#desdeDay').val(),
-                    hasta_day: $('#hastaDay').val()
+                    codigo: '3',
+                    estado_cartilla: '3',
+                    desde_day: '',
+                    hasta_day: ''
                 }
 
                 //alertify.alert("Comprobante_Pago: " + filtro.numero_comprobante + "<BR>Nombre Paciente: " + filtro.nombre_paciente);
@@ -773,7 +773,7 @@
                 $.ajax({
                     type: "POST",
                     async: false,
-                    url: '/CartillaAtencion/buscarCartillaAtencion',
+                    url: '/SolicitudMantenimiento/listarSolicitudMantenimiento/',
                     cache: false,
                     data: JSON.stringify(filtro),
                     dataType: "JSON",

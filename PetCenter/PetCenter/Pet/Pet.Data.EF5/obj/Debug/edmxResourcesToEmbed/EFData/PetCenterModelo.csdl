@@ -39,22 +39,6 @@
     <FunctionImport Name="USP_CONSULTA_MATERIAL">
       <Parameter Name="DescripcionMaterial" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="USP_CONSULTA_SOLICITUDES">
-      <Parameter Name="CodigoSolicitud" Mode="In" Type="Int32" />
-      <Parameter Name="Descripcion" Mode="In" Type="String" />
-      <Parameter Name="CodigoTipoMantenimiento" Mode="In" Type="Int32" />
-      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
-      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
-      <Parameter Name="Estado" Mode="In" Type="Int32" />
-      <Parameter Name="CodigoSede" Mode="In" Type="Int32" />
-      <Parameter Name="CodigoArea" Mode="In" Type="Int32" />
-      <Parameter Name="OrdenCampo" Mode="In" Type="String" />
-      <Parameter Name="OrdenOrientacion" Mode="In" Type="String" />
-      <Parameter Name="PaginaActual" Mode="In" Type="Int32" />
-      <Parameter Name="NroRegistrosPorPagina" Mode="In" Type="Int32" />
-      <Parameter Name="TotalRegistros" Mode="InOut" Type="Int32" />
-      <Parameter Name="CantidadPaginas" Mode="InOut" Type="Int32" />
-    </FunctionImport>
     <FunctionImport Name="USP_CONSULTAR_AREA" ReturnType="Collection(PET_DBModel.USP_CONSULTAR_AREA_Result)" />
     <FunctionImport Name="USP_CONSULTAR_ESTADO_FICHA_MANTENIMIENTO" ReturnType="Collection(PET_DBModel.USP_CONSULTAR_ESTADO_FICHA_MANTENIMIENTO_Result)" />
     <FunctionImport Name="USP_CONSULTAR_ESTADO_SOLICITUD" ReturnType="Collection(PET_DBModel.USP_CONSULTAR_ESTADO_SOLICITUD_Result)" />
@@ -346,6 +330,16 @@
       <End Role="GPC_Solicitud" EntitySet="GPC_Solicitud" />
       <End Role="GPC_DetalleDeSolicitud" EntitySet="GPC_DetalleDeSolicitud" />
     </AssociationSet>
+    <FunctionImport Name="USP_CONSULTA_SOLICITUDES" ReturnType="Collection(PET_DBModel.USP_CONSULTA_SOLICITUDES_Result)">
+      <Parameter Name="CodigoSolicitud" Mode="In" Type="Int32" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="CodigoTipoMantenimiento" Mode="In" Type="Int32" />
+      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+      <Parameter Name="Estado" Mode="In" Type="Int32" />
+      <Parameter Name="CodigoSede" Mode="In" Type="Int32" />
+      <Parameter Name="CodigoArea" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="USP_CONSULTA_ACTIVIDAD_Result">
     <Property Type="Int32" Name="CodigoActividad" Nullable="false" />
@@ -1498,4 +1492,25 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <ComplexType Name="USP_CONSULTA_SOLICITUDES_Result">
+    <Property Type="Int32" Name="CodigoSolicitud" Nullable="true" />
+    <Property Type="String" Name="DescripcionSolicitud" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="FechaSolicitud" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="CodigoEstadoSolicitud" Nullable="true" />
+    <Property Type="String" Name="DescripcionEstadoSolicitud" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="CodigoSede" Nullable="true" />
+    <Property Type="String" Name="DescripcionSedeSolicitud" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="CodigoArea" Nullable="true" />
+    <Property Type="String" Name="DescripcionAreaSolicitud" Nullable="true" MaxLength="80" />
+    <Property Type="Int32" Name="CodigoTipoMantenimiento" Nullable="true" />
+    <Property Type="String" Name="DescripcionTipoMantenimiento" Nullable="true" MaxLength="80" />
+    <Property Type="Int32" Name="CodigoEmpleadoRegistra" Nullable="true" />
+    <Property Type="String" Name="NombreEmpleadoRegistra" Nullable="true" MaxLength="80" />
+    <Property Type="Int32" Name="CodigoEmpleadoAprueba" Nullable="true" />
+    <Property Type="String" Name="NombreEmpleadoAprueba" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="UsuarioCreacion" Nullable="true" MaxLength="25" />
+    <Property Type="DateTime" Name="FechaHoraCreacion" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UsuarioActualizacion" Nullable="true" MaxLength="25" />
+    <Property Type="DateTime" Name="FechaHoraActualizacion" Nullable="true" Precision="23" />
+  </ComplexType>
 </Schema>
