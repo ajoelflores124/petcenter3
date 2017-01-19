@@ -870,18 +870,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="R_3">
-          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
-          <End Role="GPC_Solicitud" Type="Self.GPC_Solicitud" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Empleado">
-              <PropertyRef Name="CodigoEmpleado" />
-            </Principal>
-            <Dependent Role="GPC_Solicitud">
-              <PropertyRef Name="codigo_empleado" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="R_4">
           <End Role="CE_Prioridad" Type="Self.CE_Prioridad" Multiplicity="0..1" />
           <End Role="GPC_Solicitud" Type="Self.GPC_Solicitud" Multiplicity="*" />
@@ -1061,8 +1049,8 @@
           <Parameter Name="CodigoSolicitud" Type="int" Mode="In" />
           <Parameter Name="Descripcion" Type="varchar" Mode="In" />
           <Parameter Name="CodigoTipoMantenimiento" Type="int" Mode="In" />
-          <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
-          <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+          <Parameter Name="FechaInicio" Type="varchar" Mode="In" />
+          <Parameter Name="FechaFin" Type="varchar" Mode="In" />
           <Parameter Name="Estado" Type="int" Mode="In" />
           <Parameter Name="CodigoSede" Type="int" Mode="In" />
           <Parameter Name="CodigoArea" Type="int" Mode="In" />
@@ -1103,19 +1091,26 @@
           <Parameter Name="Accion" Type="char" Mode="In" />
           <Parameter Name="CodigoFichaMantenimientoOut" Type="int" Mode="InOut" />
         </Function>
-        <Function Name="USP_REGISTRAR_MANTENIMIENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_REGISTRAR_MANTENIMIENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodigoMantenimiento" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Fecha" Type="varchar" Mode="In" />
+          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="CodigoSolicitud" Type="int" Mode="In" />
+          <Parameter Name="UsuarioCreacion" Type="varchar" Mode="In" />
+          <Parameter Name="Accion" Type="char" Mode="In" />
+        </Function>
         <Function Name="USP_REGISTRAR_MATERIAL_X_FICHA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="USP_REGISTRAR_SOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CodigoSolicitud" Type="int" Mode="In" />
           <Parameter Name="Descripcion" Type="varchar" Mode="In" />
-          <Parameter Name="Fecha" Type="datetime" Mode="In" />
+          <Parameter Name="Fecha" Type="varchar" Mode="In" />
           <Parameter Name="Estado" Type="int" Mode="In" />
           <Parameter Name="CodigoSede" Type="int" Mode="In" />
           <Parameter Name="CodigoArea" Type="int" Mode="In" />
           <Parameter Name="CodigoTipoMantenimiento" Type="int" Mode="In" />
           <Parameter Name="CodigoEmpleado1" Type="int" Mode="In" />
           <Parameter Name="UsuarioRegistro" Type="varchar" Mode="In" />
-          <Parameter Name="FechaHoraRegistro" Type="datetime" Mode="In" />
           <Parameter Name="Accion" Type="char" Mode="In" />
           <Parameter Name="CodigoSolicitudOut" Type="int" Mode="InOut" />
         </Function>
@@ -1287,10 +1282,6 @@
             <End Role="GPC_Solicitud" EntitySet="GPC_Solicitud" />
             <End Role="GPC_DetalleDeSolicitud" EntitySet="GPC_DetalleDeSolicitud" />
           </AssociationSet>
-          <AssociationSet Name="R_3" Association="Self.R_3">
-            <End Role="Empleado" EntitySet="Empleado" />
-            <End Role="GPC_Solicitud" EntitySet="GPC_Solicitud" />
-          </AssociationSet>
           <AssociationSet Name="R_4" Association="Self.R_4">
             <End Role="CE_Prioridad" EntitySet="CE_Prioridad" />
             <End Role="GPC_Solicitud" EntitySet="GPC_Solicitud" />
@@ -1401,20 +1392,6 @@
             <Parameter Name="FechaHoraRegistro" Mode="In" Type="DateTime" />
             <Parameter Name="Accion" Mode="In" Type="String" />
             <Parameter Name="CodigoFichaMantenimientoOut" Mode="InOut" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="USP_REGISTRAR_SOLICITUD">
-            <Parameter Name="CodigoSolicitud" Mode="In" Type="Int32" />
-            <Parameter Name="Descripcion" Mode="In" Type="String" />
-            <Parameter Name="Fecha" Mode="In" Type="DateTime" />
-            <Parameter Name="Estado" Mode="In" Type="Int32" />
-            <Parameter Name="CodigoSede" Mode="In" Type="Int32" />
-            <Parameter Name="CodigoArea" Mode="In" Type="Int32" />
-            <Parameter Name="CodigoTipoMantenimiento" Mode="In" Type="Int32" />
-            <Parameter Name="CodigoEmpleado1" Mode="In" Type="Int32" />
-            <Parameter Name="UsuarioRegistro" Mode="In" Type="String" />
-            <Parameter Name="FechaHoraRegistro" Mode="In" Type="DateTime" />
-            <Parameter Name="Accion" Mode="In" Type="String" />
-            <Parameter Name="CodigoSolicitudOut" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="ACI_Chip" EntityType="PET_DBModel.ACI_Chip" />
           <EntitySet Name="ACI_Chip_OrdenAtencion" EntityType="PET_DBModel.ACI_Chip_OrdenAtencion" />
@@ -1610,7 +1587,6 @@
             <Parameter Name="numero_solicitud" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="USP_REGISTRAR_ACTIVIDAD_X_FICHA" />
-          <FunctionImport Name="USP_REGISTRAR_MANTENIMIENTO" />
           <FunctionImport Name="USP_REGISTRAR_MATERIAL_X_FICHA" />
           <EntitySet Name="Solicitud" EntityType="PET_DBModel.Solicitud" />
           <AssociationSet Name="Solicitud_Area_FK" Association="PET_DBModel.Solicitud_Area_FK">
@@ -1662,11 +1638,33 @@
             <Parameter Name="CodigoSolicitud" Mode="In" Type="Int32" />
             <Parameter Name="Descripcion" Mode="In" Type="String" />
             <Parameter Name="CodigoTipoMantenimiento" Mode="In" Type="Int32" />
-            <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
-            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaInicio" Mode="In" Type="String" />
+            <Parameter Name="FechaFin" Mode="In" Type="String" />
             <Parameter Name="Estado" Mode="In" Type="Int32" />
             <Parameter Name="CodigoSede" Mode="In" Type="Int32" />
             <Parameter Name="CodigoArea" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_REGISTRAR_SOLICITUD">
+            <Parameter Name="CodigoSolicitud" Mode="In" Type="Int32" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="Fecha" Mode="In" Type="String" />
+            <Parameter Name="Estado" Mode="In" Type="Int32" />
+            <Parameter Name="CodigoSede" Mode="In" Type="Int32" />
+            <Parameter Name="CodigoArea" Mode="In" Type="Int32" />
+            <Parameter Name="CodigoTipoMantenimiento" Mode="In" Type="Int32" />
+            <Parameter Name="CodigoEmpleado1" Mode="In" Type="Int32" />
+            <Parameter Name="UsuarioRegistro" Mode="In" Type="String" />
+            <Parameter Name="Accion" Mode="In" Type="String" />
+            <Parameter Name="CodigoSolicitudOut" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_REGISTRAR_MANTENIMIENTO">
+            <Parameter Name="CodigoMantenimiento" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Fecha" Mode="In" Type="String" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="CodigoSolicitud" Mode="In" Type="Int32" />
+            <Parameter Name="UsuarioCreacion" Mode="In" Type="String" />
+            <Parameter Name="Accion" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="USP_CONSULTA_ACTIVIDAD_Result">
@@ -3021,7 +3019,6 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="USP_REGISTRAR_FICHA_MANTENIMIENTO" FunctionName="PET_DBModel.Store.USP_REGISTRAR_FICHA_MANTENIMIENTO" />
-          <FunctionImportMapping FunctionImportName="USP_REGISTRAR_SOLICITUD" FunctionName="PET_DBModel.Store.USP_REGISTRAR_SOLICITUD" />
           <EntitySetMapping Name="ACI_Chip">
             <EntityTypeMapping TypeName="PET_DBModel.ACI_Chip">
               <MappingFragment StoreEntitySet="ACI_Chip">
@@ -3502,7 +3499,6 @@
           <FunctionImportMapping FunctionImportName="RegistraDetalleSolicitud" FunctionName="PET_DBModel.Store.RegistraDetalleSolicitud" />
           <FunctionImportMapping FunctionImportName="RegistraSolicitud" FunctionName="PET_DBModel.Store.RegistraSolicitud" />
           <FunctionImportMapping FunctionImportName="USP_REGISTRAR_ACTIVIDAD_X_FICHA" FunctionName="PET_DBModel.Store.USP_REGISTRAR_ACTIVIDAD_X_FICHA" />
-          <FunctionImportMapping FunctionImportName="USP_REGISTRAR_MANTENIMIENTO" FunctionName="PET_DBModel.Store.USP_REGISTRAR_MANTENIMIENTO" />
           <FunctionImportMapping FunctionImportName="USP_REGISTRAR_MATERIAL_X_FICHA" FunctionName="PET_DBModel.Store.USP_REGISTRAR_MATERIAL_X_FICHA" />
           <EntitySetMapping Name="Solicitud">
             <EntityTypeMapping TypeName="PET_DBModel.Solicitud">
@@ -3563,6 +3559,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_REGISTRAR_SOLICITUD" FunctionName="PET_DBModel.Store.USP_REGISTRAR_SOLICITUD" />
+          <FunctionImportMapping FunctionImportName="USP_REGISTRAR_MANTENIMIENTO" FunctionName="PET_DBModel.Store.USP_REGISTRAR_MANTENIMIENTO" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -6,3 +6,4 @@ C:\Users\jesus\Source\Repos\petcenter3\PetCenter\PetCenter\Pet\Pet.Entity\bin\De
 C:\Users\jesus\Source\Repos\petcenter3\PetCenter\PetCenter\Pet\Pet.Entity\bin\Debug\Pet.Entity.pdb
 C:\Users\jesus\Source\Repos\petcenter3\PetCenter\PetCenter\Pet\Pet.Entity\obj\Debug\Pet.Entity.dll
 C:\Users\jesus\Source\Repos\petcenter3\PetCenter\PetCenter\Pet\Pet.Entity\obj\Debug\Pet.Entity.pdb
+C:\Users\jesus\Source\Repos\petcenter3\PetCenter\PetCenter\Pet\Pet.Entity\obj\Debug\Pet.Entity.csprojResolveAssemblyReference.cache

@@ -314,55 +314,6 @@ namespace Pet.Data.EF5.EFData
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_REGISTRAR_FICHA_MANTENIMIENTO", codigoFichaMantenimientoParameter, codigoMantenimientoParameter, codigoEmpleadoParameter, descripcionParameter, fechaParameter, fechaInicioParameter, fechaFinParameter, cantidadTecnicosParameter, estadoParameter, usuarioRegistroParameter, fechaHoraRegistroParameter, accionParameter, codigoFichaMantenimientoOut);
         }
     
-        public virtual int USP_REGISTRAR_SOLICITUD(Nullable<int> codigoSolicitud, string descripcion, Nullable<System.DateTime> fecha, Nullable<int> estado, Nullable<int> codigoSede, Nullable<int> codigoArea, Nullable<int> codigoTipoMantenimiento, Nullable<int> codigoEmpleado1, string usuarioRegistro, Nullable<System.DateTime> fechaHoraRegistro, string accion, ObjectParameter codigoSolicitudOut)
-        {
-            var codigoSolicitudParameter = codigoSolicitud.HasValue ?
-                new ObjectParameter("CodigoSolicitud", codigoSolicitud) :
-                new ObjectParameter("CodigoSolicitud", typeof(int));
-    
-            var descripcionParameter = descripcion != null ?
-                new ObjectParameter("Descripcion", descripcion) :
-                new ObjectParameter("Descripcion", typeof(string));
-    
-            var fechaParameter = fecha.HasValue ?
-                new ObjectParameter("Fecha", fecha) :
-                new ObjectParameter("Fecha", typeof(System.DateTime));
-    
-            var estadoParameter = estado.HasValue ?
-                new ObjectParameter("Estado", estado) :
-                new ObjectParameter("Estado", typeof(int));
-    
-            var codigoSedeParameter = codigoSede.HasValue ?
-                new ObjectParameter("CodigoSede", codigoSede) :
-                new ObjectParameter("CodigoSede", typeof(int));
-    
-            var codigoAreaParameter = codigoArea.HasValue ?
-                new ObjectParameter("CodigoArea", codigoArea) :
-                new ObjectParameter("CodigoArea", typeof(int));
-    
-            var codigoTipoMantenimientoParameter = codigoTipoMantenimiento.HasValue ?
-                new ObjectParameter("CodigoTipoMantenimiento", codigoTipoMantenimiento) :
-                new ObjectParameter("CodigoTipoMantenimiento", typeof(int));
-    
-            var codigoEmpleado1Parameter = codigoEmpleado1.HasValue ?
-                new ObjectParameter("CodigoEmpleado1", codigoEmpleado1) :
-                new ObjectParameter("CodigoEmpleado1", typeof(int));
-    
-            var usuarioRegistroParameter = usuarioRegistro != null ?
-                new ObjectParameter("UsuarioRegistro", usuarioRegistro) :
-                new ObjectParameter("UsuarioRegistro", typeof(string));
-    
-            var fechaHoraRegistroParameter = fechaHoraRegistro.HasValue ?
-                new ObjectParameter("FechaHoraRegistro", fechaHoraRegistro) :
-                new ObjectParameter("FechaHoraRegistro", typeof(System.DateTime));
-    
-            var accionParameter = accion != null ?
-                new ObjectParameter("Accion", accion) :
-                new ObjectParameter("Accion", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_REGISTRAR_SOLICITUD", codigoSolicitudParameter, descripcionParameter, fechaParameter, estadoParameter, codigoSedeParameter, codigoAreaParameter, codigoTipoMantenimientoParameter, codigoEmpleado1Parameter, usuarioRegistroParameter, fechaHoraRegistroParameter, accionParameter, codigoSolicitudOut);
-        }
-    
         public virtual int ActualizaSolicitud(Nullable<int> numero_solicitud, Nullable<System.DateTime> fecha_hora, Nullable<int> codigo_empleado, Nullable<int> codigo_prioridad, Nullable<int> codigo_estado)
         {
             var numero_solicitudParameter = numero_solicitud.HasValue ?
@@ -501,17 +452,12 @@ namespace Pet.Data.EF5.EFData
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_REGISTRAR_ACTIVIDAD_X_FICHA");
         }
     
-        public virtual int USP_REGISTRAR_MANTENIMIENTO()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_REGISTRAR_MANTENIMIENTO");
-        }
-    
         public virtual int USP_REGISTRAR_MATERIAL_X_FICHA()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_REGISTRAR_MATERIAL_X_FICHA");
         }
     
-        public virtual ObjectResult<USP_CONSULTA_SOLICITUDES_Result> USP_CONSULTA_SOLICITUDES(Nullable<int> codigoSolicitud, string descripcion, Nullable<int> codigoTipoMantenimiento, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> estado, Nullable<int> codigoSede, Nullable<int> codigoArea)
+        public virtual ObjectResult<USP_CONSULTA_SOLICITUDES_Result> USP_CONSULTA_SOLICITUDES(Nullable<int> codigoSolicitud, string descripcion, Nullable<int> codigoTipoMantenimiento, string fechaInicio, string fechaFin, Nullable<int> estado, Nullable<int> codigoSede, Nullable<int> codigoArea)
         {
             var codigoSolicitudParameter = codigoSolicitud.HasValue ?
                 new ObjectParameter("CodigoSolicitud", codigoSolicitud) :
@@ -525,13 +471,13 @@ namespace Pet.Data.EF5.EFData
                 new ObjectParameter("CodigoTipoMantenimiento", codigoTipoMantenimiento) :
                 new ObjectParameter("CodigoTipoMantenimiento", typeof(int));
     
-            var fechaInicioParameter = fechaInicio.HasValue ?
+            var fechaInicioParameter = fechaInicio != null ?
                 new ObjectParameter("FechaInicio", fechaInicio) :
-                new ObjectParameter("FechaInicio", typeof(System.DateTime));
+                new ObjectParameter("FechaInicio", typeof(string));
     
-            var fechaFinParameter = fechaFin.HasValue ?
+            var fechaFinParameter = fechaFin != null ?
                 new ObjectParameter("FechaFin", fechaFin) :
-                new ObjectParameter("FechaFin", typeof(System.DateTime));
+                new ObjectParameter("FechaFin", typeof(string));
     
             var estadoParameter = estado.HasValue ?
                 new ObjectParameter("Estado", estado) :
@@ -546,6 +492,84 @@ namespace Pet.Data.EF5.EFData
                 new ObjectParameter("CodigoArea", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_CONSULTA_SOLICITUDES_Result>("USP_CONSULTA_SOLICITUDES", codigoSolicitudParameter, descripcionParameter, codigoTipoMantenimientoParameter, fechaInicioParameter, fechaFinParameter, estadoParameter, codigoSedeParameter, codigoAreaParameter);
+        }
+    
+        public virtual int USP_REGISTRAR_SOLICITUD(Nullable<int> codigoSolicitud, string descripcion, string fecha, Nullable<int> estado, Nullable<int> codigoSede, Nullable<int> codigoArea, Nullable<int> codigoTipoMantenimiento, Nullable<int> codigoEmpleado1, string usuarioRegistro, string accion, ObjectParameter codigoSolicitudOut)
+        {
+            var codigoSolicitudParameter = codigoSolicitud.HasValue ?
+                new ObjectParameter("CodigoSolicitud", codigoSolicitud) :
+                new ObjectParameter("CodigoSolicitud", typeof(int));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            var fechaParameter = fecha != null ?
+                new ObjectParameter("Fecha", fecha) :
+                new ObjectParameter("Fecha", typeof(string));
+    
+            var estadoParameter = estado.HasValue ?
+                new ObjectParameter("Estado", estado) :
+                new ObjectParameter("Estado", typeof(int));
+    
+            var codigoSedeParameter = codigoSede.HasValue ?
+                new ObjectParameter("CodigoSede", codigoSede) :
+                new ObjectParameter("CodigoSede", typeof(int));
+    
+            var codigoAreaParameter = codigoArea.HasValue ?
+                new ObjectParameter("CodigoArea", codigoArea) :
+                new ObjectParameter("CodigoArea", typeof(int));
+    
+            var codigoTipoMantenimientoParameter = codigoTipoMantenimiento.HasValue ?
+                new ObjectParameter("CodigoTipoMantenimiento", codigoTipoMantenimiento) :
+                new ObjectParameter("CodigoTipoMantenimiento", typeof(int));
+    
+            var codigoEmpleado1Parameter = codigoEmpleado1.HasValue ?
+                new ObjectParameter("CodigoEmpleado1", codigoEmpleado1) :
+                new ObjectParameter("CodigoEmpleado1", typeof(int));
+    
+            var usuarioRegistroParameter = usuarioRegistro != null ?
+                new ObjectParameter("UsuarioRegistro", usuarioRegistro) :
+                new ObjectParameter("UsuarioRegistro", typeof(string));
+    
+            var accionParameter = accion != null ?
+                new ObjectParameter("Accion", accion) :
+                new ObjectParameter("Accion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_REGISTRAR_SOLICITUD", codigoSolicitudParameter, descripcionParameter, fechaParameter, estadoParameter, codigoSedeParameter, codigoAreaParameter, codigoTipoMantenimientoParameter, codigoEmpleado1Parameter, usuarioRegistroParameter, accionParameter, codigoSolicitudOut);
+        }
+    
+        public virtual int USP_REGISTRAR_MANTENIMIENTO(Nullable<int> codigoMantenimiento, string nombre, string fecha, string descripcion, Nullable<int> codigoSolicitud, string usuarioCreacion, string accion)
+        {
+            var codigoMantenimientoParameter = codigoMantenimiento.HasValue ?
+                new ObjectParameter("CodigoMantenimiento", codigoMantenimiento) :
+                new ObjectParameter("CodigoMantenimiento", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var fechaParameter = fecha != null ?
+                new ObjectParameter("Fecha", fecha) :
+                new ObjectParameter("Fecha", typeof(string));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            var codigoSolicitudParameter = codigoSolicitud.HasValue ?
+                new ObjectParameter("CodigoSolicitud", codigoSolicitud) :
+                new ObjectParameter("CodigoSolicitud", typeof(int));
+    
+            var usuarioCreacionParameter = usuarioCreacion != null ?
+                new ObjectParameter("UsuarioCreacion", usuarioCreacion) :
+                new ObjectParameter("UsuarioCreacion", typeof(string));
+    
+            var accionParameter = accion != null ?
+                new ObjectParameter("Accion", accion) :
+                new ObjectParameter("Accion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_REGISTRAR_MANTENIMIENTO", codigoMantenimientoParameter, nombreParameter, fechaParameter, descripcionParameter, codigoSolicitudParameter, usuarioCreacionParameter, accionParameter);
         }
     }
 }

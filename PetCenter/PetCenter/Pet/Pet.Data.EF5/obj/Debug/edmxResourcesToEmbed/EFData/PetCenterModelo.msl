@@ -175,7 +175,6 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="USP_REGISTRAR_FICHA_MANTENIMIENTO" FunctionName="PET_DBModel.Store.USP_REGISTRAR_FICHA_MANTENIMIENTO" />
-    <FunctionImportMapping FunctionImportName="USP_REGISTRAR_SOLICITUD" FunctionName="PET_DBModel.Store.USP_REGISTRAR_SOLICITUD" />
     <EntitySetMapping Name="ACI_Chip">
       <EntityTypeMapping TypeName="PET_DBModel.ACI_Chip">
         <MappingFragment StoreEntitySet="ACI_Chip">
@@ -656,7 +655,6 @@
     <FunctionImportMapping FunctionImportName="RegistraDetalleSolicitud" FunctionName="PET_DBModel.Store.RegistraDetalleSolicitud" />
     <FunctionImportMapping FunctionImportName="RegistraSolicitud" FunctionName="PET_DBModel.Store.RegistraSolicitud" />
     <FunctionImportMapping FunctionImportName="USP_REGISTRAR_ACTIVIDAD_X_FICHA" FunctionName="PET_DBModel.Store.USP_REGISTRAR_ACTIVIDAD_X_FICHA" />
-    <FunctionImportMapping FunctionImportName="USP_REGISTRAR_MANTENIMIENTO" FunctionName="PET_DBModel.Store.USP_REGISTRAR_MANTENIMIENTO" />
     <FunctionImportMapping FunctionImportName="USP_REGISTRAR_MATERIAL_X_FICHA" FunctionName="PET_DBModel.Store.USP_REGISTRAR_MATERIAL_X_FICHA" />
     <EntitySetMapping Name="Solicitud">
       <EntityTypeMapping TypeName="PET_DBModel.Solicitud">
@@ -717,5 +715,7 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_REGISTRAR_SOLICITUD" FunctionName="PET_DBModel.Store.USP_REGISTRAR_SOLICITUD" />
+    <FunctionImportMapping FunctionImportName="USP_REGISTRAR_MANTENIMIENTO" FunctionName="PET_DBModel.Store.USP_REGISTRAR_MANTENIMIENTO" />
   </EntityContainerMapping>
 </Mapping>

@@ -31,7 +31,7 @@ namespace Pet.Web.Controllers
         }
 
         [HttpPost]
-        public JsonResult listarSolicitudMantenimiento(Nullable<int> codigoSolicitud, string descripcion, Nullable<int> codigoTipoMantenimiento, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> estado, Nullable<int> codigoSede, Nullable<int> codigoArea)
+        public JsonResult listarSolicitudMantenimiento(Nullable<int> codigoSolicitud, string descripcion, Nullable<int> codigoTipoMantenimiento, string  fechaInicio, string  fechaFin, Nullable<int> estado, Nullable<int> codigoSede, Nullable<int> codigoArea)
         {
             //log.Info("Function: [listarSolicitudMantenimiento("+p_codSol+","+p_desc+","+p_codTipMant+","+p_fecini+","+p_fecfin+","+p_estado+","+p_codSede+","+p_codArea+")] ");
 

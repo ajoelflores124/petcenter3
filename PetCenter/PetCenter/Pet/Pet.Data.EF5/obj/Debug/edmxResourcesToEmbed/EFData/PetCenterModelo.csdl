@@ -74,20 +74,6 @@
       <Parameter Name="Accion" Mode="In" Type="String" />
       <Parameter Name="CodigoFichaMantenimientoOut" Mode="InOut" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="USP_REGISTRAR_SOLICITUD">
-      <Parameter Name="CodigoSolicitud" Mode="In" Type="Int32" />
-      <Parameter Name="Descripcion" Mode="In" Type="String" />
-      <Parameter Name="Fecha" Mode="In" Type="DateTime" />
-      <Parameter Name="Estado" Mode="In" Type="Int32" />
-      <Parameter Name="CodigoSede" Mode="In" Type="Int32" />
-      <Parameter Name="CodigoArea" Mode="In" Type="Int32" />
-      <Parameter Name="CodigoTipoMantenimiento" Mode="In" Type="Int32" />
-      <Parameter Name="CodigoEmpleado1" Mode="In" Type="Int32" />
-      <Parameter Name="UsuarioRegistro" Mode="In" Type="String" />
-      <Parameter Name="FechaHoraRegistro" Mode="In" Type="DateTime" />
-      <Parameter Name="Accion" Mode="In" Type="String" />
-      <Parameter Name="CodigoSolicitudOut" Mode="InOut" Type="Int32" />
-    </FunctionImport>
     <EntitySet Name="ACI_Chip" EntityType="PET_DBModel.ACI_Chip" />
     <EntitySet Name="ACI_Chip_OrdenAtencion" EntityType="PET_DBModel.ACI_Chip_OrdenAtencion" />
     <EntitySet Name="ACI_OrdenAtencion" EntityType="PET_DBModel.ACI_OrdenAtencion" />
@@ -282,7 +268,6 @@
       <Parameter Name="numero_solicitud" Mode="InOut" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="USP_REGISTRAR_ACTIVIDAD_X_FICHA" />
-    <FunctionImport Name="USP_REGISTRAR_MANTENIMIENTO" />
     <FunctionImport Name="USP_REGISTRAR_MATERIAL_X_FICHA" />
     <EntitySet Name="Solicitud" EntityType="PET_DBModel.Solicitud" />
     <AssociationSet Name="Solicitud_Area_FK" Association="PET_DBModel.Solicitud_Area_FK">
@@ -334,11 +319,33 @@
       <Parameter Name="CodigoSolicitud" Mode="In" Type="Int32" />
       <Parameter Name="Descripcion" Mode="In" Type="String" />
       <Parameter Name="CodigoTipoMantenimiento" Mode="In" Type="Int32" />
-      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
-      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaInicio" Mode="In" Type="String" />
+      <Parameter Name="FechaFin" Mode="In" Type="String" />
       <Parameter Name="Estado" Mode="In" Type="Int32" />
       <Parameter Name="CodigoSede" Mode="In" Type="Int32" />
       <Parameter Name="CodigoArea" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_REGISTRAR_SOLICITUD">
+      <Parameter Name="CodigoSolicitud" Mode="In" Type="Int32" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="Fecha" Mode="In" Type="String" />
+      <Parameter Name="Estado" Mode="In" Type="Int32" />
+      <Parameter Name="CodigoSede" Mode="In" Type="Int32" />
+      <Parameter Name="CodigoArea" Mode="In" Type="Int32" />
+      <Parameter Name="CodigoTipoMantenimiento" Mode="In" Type="Int32" />
+      <Parameter Name="CodigoEmpleado1" Mode="In" Type="Int32" />
+      <Parameter Name="UsuarioRegistro" Mode="In" Type="String" />
+      <Parameter Name="Accion" Mode="In" Type="String" />
+      <Parameter Name="CodigoSolicitudOut" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_REGISTRAR_MANTENIMIENTO">
+      <Parameter Name="CodigoMantenimiento" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Fecha" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="CodigoSolicitud" Mode="In" Type="Int32" />
+      <Parameter Name="UsuarioCreacion" Mode="In" Type="String" />
+      <Parameter Name="Accion" Mode="In" Type="String" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="USP_CONSULTA_ACTIVIDAD_Result">
