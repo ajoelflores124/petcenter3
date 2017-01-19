@@ -31,10 +31,17 @@ namespace Pet.Web.Controllers
         }
 
         [HttpPost]
-        public JsonResult listarSolicitudMantenimiento(int p_codSol,String p_desc ,int p_codTipMant, String p_fecini, String p_fecfin, String p_estado, String p_codSede,String p_codArea   )
+        public JsonResult listarSolicitudMantenimiento(Nullable<int> codigoSolicitud, string descripcion, Nullable<int> codigoTipoMantenimiento, Nullable<System.DateTime> fechaInicio, Nullable<System.DateTime> fechaFin, Nullable<int> estado, Nullable<int> codigoSede, Nullable<int> codigoArea)
         {
-            log.Info("Function: [listarSolicitudMantenimiento("+p_codSol+","+p_desc+","+p_codTipMant+","+p_fecini+","+p_fecfin+","+p_estado+","+p_codSede+","+p_codArea+")] ");
-            return Json(SolicitudMantenimiento.ConsultarSolicitud (), JsonRequestBehavior.AllowGet);
+            //log.Info("Function: [listarSolicitudMantenimiento("+p_codSol+","+p_desc+","+p_codTipMant+","+p_fecini+","+p_fecfin+","+p_estado+","+p_codSede+","+p_codArea+")] ");
+
+            return Json(SolicitudMantenimiento.ConsultarSolicitud(codigoSolicitud, descripcion, codigoTipoMantenimiento, fechaInicio, fechaFin, estado, codigoSede, codigoArea), JsonRequestBehavior.AllowGet);
+        }
+
+
+        public ActionResult Adicionar()
+        {
+            return View();
         }
 
 

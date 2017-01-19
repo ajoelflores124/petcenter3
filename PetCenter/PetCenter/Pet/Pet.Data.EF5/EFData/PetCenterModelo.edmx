@@ -870,6 +870,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="R_3">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="GPC_Solicitud" Type="Self.GPC_Solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="CodigoEmpleado" />
+            </Principal>
+            <Dependent Role="GPC_Solicitud">
+              <PropertyRef Name="codigo_empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="R_4">
           <End Role="CE_Prioridad" Type="Self.CE_Prioridad" Multiplicity="0..1" />
           <End Role="GPC_Solicitud" Type="Self.GPC_Solicitud" Multiplicity="*" />
@@ -1274,6 +1286,10 @@
           <AssociationSet Name="R_2" Association="Self.R_2">
             <End Role="GPC_Solicitud" EntitySet="GPC_Solicitud" />
             <End Role="GPC_DetalleDeSolicitud" EntitySet="GPC_DetalleDeSolicitud" />
+          </AssociationSet>
+          <AssociationSet Name="R_3" Association="Self.R_3">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="GPC_Solicitud" EntitySet="GPC_Solicitud" />
           </AssociationSet>
           <AssociationSet Name="R_4" Association="Self.R_4">
             <End Role="CE_Prioridad" EntitySet="CE_Prioridad" />

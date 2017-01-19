@@ -107,13 +107,13 @@ function htmlSolicitud(element) {
         $row.append($('<td/>').html(val.prioridad));
         $row.append($('<td/>').html(val.usuario));
         $row.append($('<td/>').html(val.estado));
-       
+
         //data-toggle='modal' data-target='#myModalStatus'
         var editar = "";
-        if (val.codigo_estado == 1 || val.codigo_estado == 2) {
+        if (val.codigo_estado == 1) {
             editar = "<a class='editar'  href='javascript:popupEditar(\"" + val.codigo_solicitud + '-' + String(val.numero_solicitud) + "\");'><i class='glyphicon glyphicon-pencil' title='Editar'></i></a>";
         }
-        else {
+        else if (val.codigo_estado == 2) {
             editar = "<a class='editar'  href='javascript:popupEditar(\"" + val.codigo_solicitud + '-' + String(val.numero_solicitud) + "\");'><i class='glyphicon glyphicon-pencil' title='Editar' style='display:none' ></i></a>";
         }
 
