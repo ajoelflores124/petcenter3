@@ -28,7 +28,7 @@ namespace Pet.Data.EF5.MANTENIMIENTO
                 
             }
         }
-        public static object RegistrarSolicitud(Nullable<int> codigoSolicitud, string descripcion, string  @Fecha, Nullable<int> estado, Nullable<int> codigoSede, Nullable<int> codigoArea, Nullable<int> CodigoTipoMantenimiento, Nullable<int> CodigoEmpleado1 ,string  UsuarioRegistro, string  Accion, string  codigoSolicitudOut)
+        public static object RegistrarSolicitud(Nullable<int> codigoSolicitud, string descripcion, string  @Fecha, Nullable<int> estado, Nullable<int> codigoSede, Nullable<int> codigoArea, Nullable<int> CodigoTipoMantenimiento, Nullable<int> CodigoEmpleado1 ,string  UsuarioRegistro, string  Accion)
         {
             //int p_codSol,
             //String p_desc ,int p_codTipMant, String p_fecini, String p_fecfin, String p_estado, String p_codSede,String p_codArea  
